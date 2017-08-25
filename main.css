@@ -1,3 +1,39 @@
 body {
-    background-color: #ff35ff;
+    background-color: #fff;
+    font-family: Calibri, 'Trebuchet MS', sans-serif
+}
+
+.widget {
+    width: 35%;
+    margin: 0 auto;
+    border: 1px solid #d3d3d3 
+}
+
+.logo_header {
+    background-color: #33ccff;
+    height: 60px;
+    text-align: center;
+    border-bottom: solid 20px #3399ff;
+}
+
+
+.logo_header img {
+    z-index: 2;
+}
+
+.container {
+    margin: 20% 5% 5% 5%;
+}
+
+.contact_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact_form,
+.full_name,
+.mobile_phone_number,
+.state,
+.question {
+    justify-content: center;
 }
