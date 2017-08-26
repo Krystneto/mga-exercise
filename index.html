@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Normalize CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" rel="stylesheet">
+    
     <link href="./main.css" rel="stylesheet">
     <title>MGA Entertainment Form</title>
 </head>
@@ -18,7 +22,7 @@
             <h2>Please fill out the following fields to contact MGA Entertainment</h2>
             <div class="contact_form">
                 <div class="full_name">
-                    <span>Full Name:<sup>*</sup></span></br>
+                    <span>Full Name:<sup>*</sup></span>
                     <input 
                         type="text" 
                         name="full_name" 
@@ -27,34 +31,73 @@
                     >
                 </div>
                 <div class="mobile_phone_number">
-                </span>Mobile Phone Number:<sup>*</sup></span></br>
+                <span>Mobile Phone Number:<sup>*</sup></span>
                     <input 
-                        type="number" 
+                        type="text" 
                         name="mobile_phone_number" 
                         id="mobile_phone_number"
                         placeholder="ex: 123-123-1234"
+                        maxlength="12"
+                        pattern="\d{3}-\d{3}-\d{4}"
                     >
                 </div>
                 <div class="state">
-                    <span>State:<sup>*</sup></span></br>
-                    <input 
+                    <span>State:<sup>*</sup></span>
+                    <select 
                         type="text" 
                         name="state" 
                         id="state"
-                        placeholder="Select One"
                     >
+                        <option>Select one</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                        <option value="California">California</option>
+                    </select>
                 </div>
                 <div class="question">
-                    <span>Describe your question:<sup>*</sup></span></br>
+                    <span>Describe your question:<sup>*</sup></span>
                     <textarea 
                         rows="4"
                         col="30"
                         type="text" 
-                        name="question" 
+                        name="question"
                         id="question"
                     >
-                </textarea>
-                <input type="submit">        
+                    </textarea>
+                </div>
+                <button type="submit" id="submit">Submit</button>        
             </div>
         </main>
     </div>
