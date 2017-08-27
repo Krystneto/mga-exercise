@@ -5,22 +5,31 @@ body {
 
 .widget {
     width: 380px;
-    height: 600px;
+    height: 625px;
     margin: 5% auto;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #DCDCDC;
     border-radius: 20px 0 0 0; 
 }
 
 .logo_header {
-    background-color: #33ccff;
+    position: relative;
+    background-color: #3FADEF;
     height: 60px;
     text-align: center;
-    border-bottom: solid 20px #3399ff;
+    border-bottom: solid 20px #2E85B6;
     border-radius: 18px 0 0 0;
 }
 
 .logo_header img {
     z-index: 99999;
+}
+
+.exit_widget {
+    color: #fff;
+    font-size: 35px;
+    position: absolute;
+    right: 10px;
+    top: -5px;
 }
 
 .container {
@@ -49,9 +58,19 @@ body {
     margin: .5em 0 .5em 0;
 }
 
+.contact_form span {
+    font-size: 20px;
+}
+
 .contact_form input {
     border-radius: 4px;
-    border: 1px solid #e6e6e6
+    border: 1px solid #DCDCDC;
+}
+
+.contact_form input:focus,
+.contact_form select:focus,
+.question textarea:focus {
+    background-color: #E3F7FD;
 }
 
 .contact_form input {
@@ -68,32 +87,34 @@ body {
     background: url(./assets/phone_icon.png) left no-repeat;
     background-position-x: 10px;
     padding-left: 3em;
-    
 }
 
 .state select {
     background-color: #fff;
+    height: 34px;
+    border-color: #DCDCDC; 
 }
 
 .question textarea {
-    border: 1px solid #e6e6e6;
+    border: 1px solid #DCDCDC;
     border-radius: 4px;
     resize: none;
 }
 
 #submit {
-    text-shadow: 1px 1px black;
+    text-shadow: 0 0 5px #2879AA;
+    font-size: 20px;
     font-weight: bold;
     color: #fff;
     border-radius: 4px;
     margin-top: 25px;
     width: 50%;
     align-self: flex-end;
-    height: 40px;
-    background-color: #33ccff;
-    border-color: #33ccff;
-    background: -webkit-linear-gradient(#33ccff,#3399ff);
-    background: -o-linear-gradient(#33ccff,#3399ff);
-    background: -moz-linear-gradient(#33ccff,#3399ff);
-    background: linear-gradient(#33ccff,#3399ff);
+    height: 45px;
+    background-color: #44C6FB;
+    border: 1px solid #44C6FB;
+    background: -webkit-linear-gradient(#52D1FF,#2879AA);
+    background: -o-linear-gradient(#52D1FF,#2A7AAA);
+    background: -moz-linear-gradient(#52D1FF,#2A7AAA);
+    background: linear-gradient(#52D1FF,#2A7AAA);
 }
