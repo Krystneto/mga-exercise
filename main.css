@@ -4,8 +4,8 @@ body {
 }
 
 .widget {
-    width: 380px;
-    height: 625px;
+    width: 375px;
+    height: 725px;
     margin: 5% auto;
     border: 1px solid #DCDCDC;
     border-radius: 20px 0 0 0; 
@@ -14,7 +14,7 @@ body {
 .logo_header {
     position: relative;
     background-color: #3FADEF;
-    height: 60px;
+    height: 70px;
     text-align: center;
     border-bottom: solid 20px #2E85B6;
     border-radius: 18px 0 0 0;
@@ -22,18 +22,20 @@ body {
 
 .logo_header img {
     z-index: 99999;
+    width: 130px;
+    height: 130px;
 }
 
 .exit_widget {
     color: #fff;
-    font-size: 35px;
+    font-size: 40px;
     position: absolute;
     right: 10px;
     top: -5px;
 }
 
 .container {
-    margin: 10% 6% 10% 6%;
+    margin: 15% 7% 10% 7%;
 }
 
 .contact_form,
@@ -74,7 +76,17 @@ body {
 }
 
 .contact_form input {
-    height: 30px;
+    height: 35px;
+}
+
+.contact_form p {
+    font-size: 16px;
+    align-self: flex-end;
+}
+
+.contact_form span:last-child {
+    font-size: 14px;
+    color: #F73835;
 }
 
 .full_name input {
@@ -91,7 +103,7 @@ body {
 
 .state select {
     background-color: #fff;
-    height: 34px;
+    height: 39px;
     border-color: #DCDCDC; 
 }
 
@@ -103,14 +115,13 @@ body {
 
 #submit {
     text-shadow: 0 0 5px #2879AA;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
     color: #fff;
     border-radius: 4px;
     margin-top: 25px;
     width: 50%;
     align-self: flex-end;
-    height: 45px;
+    height: 40px;
     background-color: #44C6FB;
     border: 1px solid #44C6FB;
     background: -webkit-linear-gradient(#52D1FF,#2879AA);
@@ -118,3 +129,4 @@ body {
     background: -moz-linear-gradient(#52D1FF,#2A7AAA);
     background: linear-gradient(#52D1FF,#2A7AAA);
 }
+
