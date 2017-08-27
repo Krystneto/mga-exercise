@@ -4,16 +4,24 @@ const mobliePhoneInput = document.body.querySelector('#mobile_phone_number');
 const stateInput = document.body.querySelector("#state");
 const questionInput = document.querySelector("#question");
 
+function isValidFullName(value) {
 
+}
 
+function isValidPhoneNumber(value) {
 
+}
 
+function isValidState(value) {
 
+}
 
+function isValidQuestion(value) {
 
+}
 
+function widgetValidation() {
 
+}
 
-submitButton.addEventListener('click', () => console.log("full_name value is", fullNameInput.value,
-    "mobilePhoneInput", mobile_phone_number.value)
-)
+submitButton.addEventListener('click', widgetValidation);
