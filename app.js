@@ -1,8 +1,8 @@
 const submitButton = document.body.querySelector('#submit');
 const fullNameInput = document.body.querySelector('#full_name');
 const mobilePhoneInput = document.body.querySelector('#mobile_phone');
-const stateInput = document.body.querySelector("#state");
-const questionInput = document.body.querySelector("#question");
+const stateInput = document.body.querySelector('#state');
+const questionInput = document.body.querySelector('#question');
 
 const container = document.body.querySelector('.container');
 const contactForm = document.body.querySelector('.contact_form');
@@ -19,7 +19,8 @@ function invalidNameField() {
     fullNameInput.className = 'warning_field'
     node.className = 'warning_text'
     node.innerText = fullNameRequiredText;
-    fullNameClass.appendChild(node)
+    fullNameClass.appendChild(node);
+    return false;
 }
 
 function invalidMobilePhoneField() {
@@ -30,6 +31,7 @@ function invalidMobilePhoneField() {
     node.className = 'warning_text'
     node.innerText = mobilePhoneRequiredText;
     mobilePhoneClass.appendChild(node);
+    return false;
 }
 
 function invalidStateField() {
@@ -39,6 +41,7 @@ function invalidStateField() {
     node.className = 'warning_text'
     node.innerText = stateRequiredText
     stateClass.appendChild(node)
+    return false;
 }
 
 function invalidQuestionField() {
@@ -48,42 +51,44 @@ function invalidQuestionField() {
     node.className = 'warning_text'
     node.innerText = descriptionRequiredText
     questionClass.appendChild(node);
+    return false;
 }
 
-function californiaPurchasedItemSelect() {
-    let div = document.createElement('div');
-    div.className = "select_california"
-    div.innerHTML = "<span>Was your item purchased in CA?:<sup>*</sup></span>"
-    let selectNode = document.createElement('select')
-    let options = ["Select one", "Yes", "No"]
-        options.map(function(x) {
-            let optionNode = document.createElement('option')
-            optionNode.value = x
-            optionNode.text = x
-            selectNode.appendChild(optionNode);
-        })
-    div.appendChild(selectNode);
-    contactForm.insertBefore(div, contactForm.childNodes[6]);
+function californiaPurchasedItemSelect(event) {
+    if (event.target.value === "California") {
+        let div = document.createElement('div');
+        div.className = "select_california"
+        div.innerHTML = "<span>Was your item purchased in CA?:<sup>*</sup></span>"
+        let selectNode = document.createElement('select')
+        let options = ["Select one", "Yes", "No"]
+            options.map(function(x) {
+                let optionNode = document.createElement('option')
+                optionNode.value = x
+                optionNode.text = x
+                selectNode.appendChild(optionNode);
+            })
+        div.appendChild(selectNode);
+        contactForm.insertBefore(div, contactForm.childNodes[6]);
+    }
 }
 
 function isValidFullName(name) {
     let isValid = /\w+\s\w+/.test(name)
-    isValid ? true : invalidNameField()  
+    return isValid ? true : invalidNameField()  
 }
 
 function isValidPhoneNumber(number) {
     let isValid = /^\d{3}-\d{3}-\d{4}$/.test(number)
-    isValid ? true : invalidMobilePhoneField()
+    return isValid ? true : invalidMobilePhoneField()
 }
 
 function isValidState(state) {
-    state === "Select one" ? invalidStateField() : true;
-    state === "California" ? californiaPurchasedItemSelect() : true; 
+    return state !== "Select one" ? true : invalidStateField();
 }
 
 function isValidQuestion(question) {
     let isValid = /\w+/.test(question);
-    isValid ? true : invalidQuestionField() 
+    return isValid ? true : invalidQuestionField() 
 }
 
 function successOnValidation() {
@@ -94,28 +99,18 @@ function successOnValidation() {
 }
 
 function widgetValidation() {
-    isValidFullName(fullNameInput.value)
-    isValidPhoneNumber(mobilePhoneInput.value) 
-    isValidState(stateInput.value)
-    isValidQuestion(questionInput.value)
+    let a = isValidFullName(fullNameInput.value)
+    let b = isValidPhoneNumber(mobilePhoneInput.value) 
+    let c = isValidState(stateInput.value)
+    let d = isValidQuestion(questionInput.value)
+    
 
-    // if (
-    //     isValidFullName(fullNameInput.value) &&
-    //     isValidPhoneNumber(mobilePhoneInput.value) &&
-    //     isValidState(stateInput.value) &&
-    //     isValidQuestion(questionInput.value)
-    // ) return successOnValidation()
+    if ( a && b && c && d) {
+        return successOnValidation();
+    } 
 }
-// function something() {
-//     invalidNameField()
-//     invalidMobilePhoneField()
-//     invalidStateField()
-//     invalidQuestionField()
-// }
-
-
-
 
 
 
 submitButton.addEventListener('click', widgetValidation);
+stateInput.addEventListener('input', californiaPurchasedItemSelect)
