@@ -41,6 +41,7 @@ body {
 .container h2 {
     font-size: 22px;
     letter-spacing: 0.5px;
+    margin: 0 auto;
 }
 
 .contact_form,
@@ -112,6 +113,8 @@ body {
 .mobile_phone input {
     background: url(./assets/phone_icon.png) left no-repeat;
     background-position-x: 10px;
+    display: inline-block;
+    position: relative;
     padding-left: 3em;
 }
 
@@ -144,8 +147,18 @@ body {
     background: linear-gradient(#52D1FF,#2A7AAA);
 }
 
-.isRequired {
+.warning_text {
     font-size: 14px !important;
     margin-bottom: 0 !important;
     color: #F73835;
+}
+
+.warning_field {
+    background-color: #FDE3DF !important;
+    border: 1px solid #F85959 !important;
+    /* background-image: url('./assets/warning_icon.png') no-repeat !important;
+    background-repeat: repeat-y;
+    background-position: left, right;
+    display: inline-block;
+    position: relative; */
 }
