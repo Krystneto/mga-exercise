@@ -48,6 +48,7 @@ body {
 .full_name,
 .mobile_phone,
 .state,
+.select_california,
 .question {
     justify-content: center;
     display: flex;
@@ -82,8 +83,8 @@ body {
 .contact_form input:focus,
 .contact_form select:focus,
 .question textarea:focus {
-    background-color: #E3F7FD;
-    outline: none;
+    background-color: #E3F7FD !important;
+    outline: none !important;
 }
 
 .contact_form input {
@@ -118,7 +119,8 @@ body {
     padding-left: 3em;
 }
 
-.state select {
+.state select,
+.select_california select {
     background-color: #fff;
     height: 39px;
     border-color: #DCDCDC; 

@@ -50,32 +50,40 @@ function invalidQuestionField() {
     questionClass.appendChild(node);
 }
 
+function californiaPurchasedItemSelect() {
+    let div = document.createElement('div');
+    div.className = "select_california"
+    div.innerHTML = "<span>Was your item purchased in CA?:<sup>*</sup></span>"
+    let selectNode = document.createElement('select')
+    let options = ["Select one", "Yes", "No"]
+        options.map(function(x) {
+            let optionNode = document.createElement('option')
+            optionNode.value = x
+            optionNode.text = x
+            selectNode.appendChild(optionNode);
+        })
+    div.appendChild(selectNode);
+    contactForm.insertBefore(div, contactForm.childNodes[6]);
+}
+
 function isValidFullName(name) {
     let isValid = /\w+\s\w+/.test(name)
-    if (!isValid) return invalidNameField()
+    isValid ? true : invalidNameField()  
 }
 
 function isValidPhoneNumber(number) {
     let isValid = /^\d{3}-\d{3}-\d{4}$/.test(number)
-    if (!isValid) return invalidMobilePhoneField()
+    isValid ? true : invalidMobilePhoneField()
 }
 
 function isValidState(state) {
-    if (state === "Select one") return invalidStateField();
-
-    if (state === "California") return 
+    state === "Select one" ? invalidStateField() : true;
+    state === "California" ? californiaPurchasedItemSelect() : true; 
 }
 
 function isValidQuestion(question) {
     let isValid = /\w+/.test(question);
-    if (!isValid) return invalidQuestionField() 
-}
-
-function widgetValidation() {
-    isValidFullName(fullNameInput.value);
-    isValidPhoneNumber(mobilePhoneInput.value);
-    isValidState(stateInput.value);
-    isValidQuestion(questionInput.value);
+    isValid ? true : invalidQuestionField() 
 }
 
 function successOnValidation() {
@@ -85,6 +93,19 @@ function successOnValidation() {
     contactForm.parentNode.removeChild(contactForm);
 }
 
+function widgetValidation() {
+    isValidFullName(fullNameInput.value)
+    isValidPhoneNumber(mobilePhoneInput.value) 
+    isValidState(stateInput.value)
+    isValidQuestion(questionInput.value)
+
+    // if (
+    //     isValidFullName(fullNameInput.value) &&
+    //     isValidPhoneNumber(mobilePhoneInput.value) &&
+    //     isValidState(stateInput.value) &&
+    //     isValidQuestion(questionInput.value)
+    // ) return successOnValidation()
+}
 // function something() {
 //     invalidNameField()
 //     invalidMobilePhoneField()
