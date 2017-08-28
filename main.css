@@ -106,17 +106,19 @@ body {
     color: #F73835;
 }
 
-.full_name input {
-    background: url(./assets/name_icon.png) left no-repeat;
+.full_name img,
+.mobile_phone img {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: -30px;
+    right: -10px;
+}
+
+.full_name input,
+.mobile_phone input {
     padding-left: 3em;
 } 
-
-.mobile_phone input {
-    background: url(./assets/phone_icon.png) left no-repeat;
-    display: inline-block;
-    position: relative;
-    padding-left: 3em;
-}
 
 .state select,
 .select_california select {
@@ -157,6 +159,7 @@ body {
 .warning_field {
     background-color: #FDE3DF !important;
     border: 1px solid #F85959 !important;
-    /* background: url('./assets/warning_icon.png') right no-repeat !important;
-    background-position-x: center;  */
+    background: url('./assets/warning_icon.png') right no-repeat !important;
+    background-position-x: 280px !important;
+    background-position-y: 10px !important;
 }
