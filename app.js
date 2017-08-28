@@ -12,47 +12,57 @@ const stateClass = document.body.querySelector('.state');
 const questionClass = document.body.querySelector('.question');
 
 
-
 function invalidNameField() {
-    let node = document.createElement('p');
-    let fullNameRequiredText = 'Full Name is a required field.' 
-    fullNameInput.className = 'warning_field'
-    node.className = 'warning_text'
-    node.innerText = fullNameRequiredText;
-    fullNameClass.appendChild(node);
-    return false;
-}
+    if (fullNameInput.className !== 'warning_field') {
+        let node = document.createElement('p');
+        let fullNameRequiredText = 'Full Name is a required field.' 
+        fullNameInput.className = 'warning_field'
+        node.className = 'warning_text'
+        node.innerText = fullNameRequiredText;
+        fullNameClass.appendChild(node);
+        return false;
+    } else {
+        console.log(fullNameInput.className)
+        return fullNameInput.classList.remove('warning_field');
+    }
+};
 
 function invalidMobilePhoneField() {
-    let node = document.createElement('p');
-    let mobilePhoneRequiredText = 'Please enter a valid phone number.';
-    // mobilePhoneInput.style.background  = "#FDE3DF url('./assets/warning_icon.png') right no-repeat 10px"
-    mobilePhoneInput.className = 'warning_field'
-    node.className = 'warning_text'
-    node.innerText = mobilePhoneRequiredText;
-    mobilePhoneClass.appendChild(node);
-    return false;
-}
+    if (mobilePhoneInput.className !== 'warning_field') {
+        let node = document.createElement('p');
+        let mobilePhoneRequiredText = 'Please enter a valid phone number.';
+        // mobilePhoneInput.style.background  = "#FDE3DF url('./assets/warning_icon.png') right no-repeat 10px"
+        mobilePhoneInput.className = 'warning_field'
+        node.className = 'warning_text'
+        node.innerText = mobilePhoneRequiredText;
+        mobilePhoneClass.appendChild(node);
+        return false;
+    };
+};
 
 function invalidStateField() {
-    let node = document.createElement('p');
-    let stateRequiredText = 'State is a required field.'    
-    stateInput.className = 'warning_field'
-    node.className = 'warning_text'
-    node.innerText = stateRequiredText
-    stateClass.appendChild(node)
-    return false;
-}
+    if (stateInput.className !== 'warning_field') {
+        let node = document.createElement('p');
+        let stateRequiredText = 'State is a required field.'    
+        stateInput.className = 'warning_field'
+        node.className = 'warning_text'
+        node.innerText = stateRequiredText
+        stateClass.appendChild(node)
+        return false;
+    };
+};
 
 function invalidQuestionField() {
-    let node = document.createElement('p');
-    let descriptionRequiredText = 'Description is a required field.'    
-    questionInput.className = 'warning_field'
-    node.className = 'warning_text'
-    node.innerText = descriptionRequiredText
-    questionClass.appendChild(node);
-    return false;
-}
+    if (questionInput.className !== 'warning_field') {
+        let node = document.createElement('p');
+        let descriptionRequiredText = 'Description is a required field.'    
+        questionInput.className = 'warning_field'
+        node.className = 'warning_text'
+        node.innerText = descriptionRequiredText
+        questionClass.appendChild(node);
+        return false;
+    };
+};
 
 function californiaPurchasedItemSelect(event) {
     if (event.target.value === "California") {
@@ -72,23 +82,28 @@ function californiaPurchasedItemSelect(event) {
     }
 }
 
+function removeWarning(elInput) {
+    elInput.classList.remove('warning_field');
+    return true;
+}
+
 function isValidFullName(name) {
     let isValid = /\w+\s\w+/.test(name)
-    return isValid ? true : invalidNameField()  
+    return isValid ? removeWarning(fullNameInput) : invalidNameField()  
 }
 
 function isValidPhoneNumber(number) {
     let isValid = /^\d{3}-\d{3}-\d{4}$/.test(number)
-    return isValid ? true : invalidMobilePhoneField()
+    return isValid ? removeWarning(mobilePhoneInput): invalidMobilePhoneField()
 }
 
 function isValidState(state) {
-    return state !== "Select one" ? true : invalidStateField();
+    return state !== "Select one" ? removeWarning(stateInput) : invalidStateField();
 }
 
 function isValidQuestion(question) {
     let isValid = /\w+/.test(question);
-    return isValid ? true : invalidQuestionField() 
+    return isValid ? removeWarning(questionInput) : invalidQuestionField() 
 }
 
 function successOnValidation() {
@@ -99,18 +114,18 @@ function successOnValidation() {
 }
 
 function widgetValidation() {
-    let a = isValidFullName(fullNameInput.value)
-    let b = isValidPhoneNumber(mobilePhoneInput.value) 
-    let c = isValidState(stateInput.value)
-    let d = isValidQuestion(questionInput.value)
-    
+    let a,b,c,d;
 
+    a = isValidFullName(fullNameInput.value);
+    b = isValidPhoneNumber(mobilePhoneInput.value); 
+    c = isValidState(stateInput.value);
+    d = isValidQuestion(questionInput.value);
+    
     if ( a && b && c && d) {
         return successOnValidation();
-    } 
-}
-
+    }; 
+};
 
 
 submitButton.addEventListener('click', widgetValidation);
-stateInput.addEventListener('input', californiaPurchasedItemSelect)
+stateInput.addEventListener('input', californiaPurchasedItemSelect);
