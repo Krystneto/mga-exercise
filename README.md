@@ -1,6 +1,6 @@
 # MGA Entertainment Exercise
 
-## This is a form widget to valid users contact information for MGA Entertainment.
+### This is an exercise to build a form widget to validate users contact information.
 
 ## Technologies
 - HTML5
