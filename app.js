@@ -13,6 +13,7 @@ const stateClass = document.body.querySelector('.state');
 const questionClass = document.body.querySelector('.question');
 
 
+// Functions to run when a field is invalid
 function invalidNameField() {
     if (fullNameInput.className !== 'warning_field') {
         let node = document.createElement('p');
@@ -31,7 +32,6 @@ function invalidMobilePhoneField() {
     if (mobilePhoneInput.className !== 'warning_field') {
         let node = document.createElement('p');
         let mobilePhoneRequiredText = 'Please enter a valid phone number.';
-        // mobilePhoneInput.style.background  = "#FDE3DF url('./assets/warning_icon.png') right no-repeat 10px"
         mobilePhoneInput.className = 'warning_field';
         node.className = 'warning_text';
         node.innerText = mobilePhoneRequiredText;
@@ -88,6 +88,7 @@ function removeWarning(elInput) {
     return true;
 }
 
+// Functions to check if input is valid
 function isValidFullName(name) {
     let isValid = /\w+\s\w+/.test(name);
     return isValid ? removeWarning(fullNameInput) : invalidNameField();  
@@ -126,7 +127,6 @@ function widgetValidation() {
         return successOnValidation();
     }
 }
-
 
 submitButton.addEventListener('click', widgetValidation);
 stateInput.addEventListener('input', californiaPurchasedItemSelect);
