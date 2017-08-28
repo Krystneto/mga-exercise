@@ -4,6 +4,7 @@ const mobilePhoneInput = document.body.querySelector('#mobile_phone');
 const stateInput = document.body.querySelector('#state');
 const questionInput = document.body.querySelector('#question');
 
+const exitWidget = document.body.querySelector('.exit_widget');
 const container = document.body.querySelector('.container');
 const contactForm = document.body.querySelector('.contact_form');
 const fullNameClass = document.body.querySelector('.full_name');
@@ -22,7 +23,6 @@ function invalidNameField() {
         fullNameClass.appendChild(node);
         return false;
     } else {
-        console.log(fullNameInput.className)
         return fullNameInput.classList.remove('warning_field');
     }
 };
@@ -79,6 +79,7 @@ function californiaPurchasedItemSelect(event) {
             })
         div.appendChild(selectNode);
         contactForm.insertBefore(div, contactForm.childNodes[6]);
+        questionInput.rows = 3;
     }
 }
 
@@ -129,3 +130,4 @@ function widgetValidation() {
 
 submitButton.addEventListener('click', widgetValidation);
 stateInput.addEventListener('input', californiaPurchasedItemSelect);
+exitWidget.addEventListener('click', function() { console.log('clicked') })
